@@ -1,21 +1,26 @@
+
+// Getting all inventory records
+//  created a variable baseurl for our api
 const baseUrl = "http://localhost:4000";
+// here we declared an empty array, where our data will be saved 
 let inventory = [];
 
-
+// This a function to get all inventory records
 function getInventoryItems() {
+    // we create an empty header 
+    // and then use myHeaders.append("Content-Type", "application/json"); it returns value in json 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
-
+// declare a variable request option with object method and header
     var requestOptions = {
         method: 'GET',
         headers: myHeaders,
     };
     fetch(`${baseUrl}/api/getAllPosts`, requestOptions)
-        .then(response => response.json())
-        .then(data => displayItems(data))
-        .catch(error => console.error("Unable to get farm inventory data.", error));
+    .then(response => response.json())
+    .then(res => displayItems(res.data))
+    .catch(error => console.error("Unable to get farm inventory data.", error));
 }
-
 
 function displayCount(itemCount) {
     const name = itemCount < 2 ? "entry" : "entries";
@@ -24,11 +29,11 @@ function displayCount(itemCount) {
 
 function displayItems(data) {
     const tBody = document.getElementById("inventory");
-    tBody.innerHTML = "";
+    tBody.innerHTML= "";
+  
     displayCount(data.length);
     data.forEach(item => {
         let editButton = document.createElement("a");
-        editButton.href = "#editInventoryModal";
         editButton.className = "edit";
         editButton.setAttribute("data-bs-target", "#editInventoryModal")
         editButton.setAttribute("onclick", `displayEditForm(${item.id})`);
@@ -37,7 +42,6 @@ function displayItems(data) {
             "<i class='material-icons' data-bs-toggle='tooltip' title='Edit'>&#xE254;</i>";
 
         let deleteButton = document.createElement("a");
-        deleteButton.href = "#deleteRecordModal";
         deleteButton.className = "delete";
         deleteButton.setAttribute("data-bs-target", "#deleteRecordModal")
         deleteButton.setAttribute("onclick", `displayDeleteForm(${item.id})`);
@@ -173,6 +177,7 @@ var editModal =  bootstrap.Modal.getInstance(document.getElementById('editInvent
   
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
+myHeaders.append("Authorization","Bearer e3erfghgghgghghgghghghggygfggfffgf")
 var requestOptions = {
     method: 'PUT',
     headers: myHeaders,
@@ -194,6 +199,9 @@ editModal.hide();
 
 
 }
+function  doc(){
+    //
+}
 
 function displayNewInventoryForm(){
    
@@ -201,6 +209,7 @@ function displayNewInventoryForm(){
 }
 
 function saveData(){
+    //
     let expenses_description= document.getElementById('exp_desc').value;
     let mortality= document.getElementById('mty').value;
     let quantity= document.getElementById('qty').value;
@@ -208,6 +217,7 @@ function saveData(){
     let analysisType= document.getElementById('anaType').value;
     let comment= document.getElementById('cmt').value;
 
+    // if no value is supplied to each field
     if(!(comment && expenses_description  && amount && quantity && mortality)){
         alert("All fields required");
         
@@ -215,13 +225,14 @@ function saveData(){
       }
 
     const bodyData=JSON.stringify({
-        "mortality":mortality ,
-   "expenses_description":expenses_description,
-   "quantity": quantity,
+        "mortality":mortality,
+        "expenses_description":expenses_description,
+        "quantity": quantity,
    "amount": amount,
    "comment": comment,
    "analysisType":analysisType
  });
+ 
     var exitModal =  bootstrap.Modal.getInstance(document.getElementById('addInventoryModal'))
     var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
@@ -234,7 +245,7 @@ fetch(`${baseUrl}/api/postData/`, requestOptions)
     .then(response => response.json())
     .then(data =>{
        
-        window.alert(data);
+        window.alert(data.message);
         getInventoryItems();
         exitModal.hide();
             })

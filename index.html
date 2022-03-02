@@ -20,7 +20,14 @@
                 <div class="col-sm-6">
                     <h2>FARM INVENTORY</h2>
                 </div>
-               
+
+
+                <div class="col-sm-6">
+               <a href="/eggmgt.html">click here </a> Go to EGG INVENTORY
+                </div>
+
+
+              <!-- modal to add new Inventory -->
                 <div class="col-sm-6">
                     <a   data-bs-target= "#addInventoryModal" data-bs-toggle="modal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i>
             <span>Add New Inventory</span>
@@ -88,10 +95,10 @@
             </thead>
             <tbody id="inventory"></tbody>
         </table>
+
+
+         <!-- modal to edit each inventory record -->
         <div id="counter"></div>
-
-
- 
         <div class="modal fade" id="editInventoryModal" tabindex="-1" role="dialog" aria-labelledby="editInventoryModal" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -142,7 +149,7 @@
         </div>
 
 
-        <!-- Delete modal -->
+        <!-- modal to delete inventory record-->
 
         <div class="modal fade" id="deleteRecordModal" tabindex="-1" aria-labelledby="deleteRecordModal" aria-hidden="true">
             <div class="modal-dialog">
