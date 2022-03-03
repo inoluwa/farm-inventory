@@ -1,4 +1,4 @@
-const eggUrl = "http://localhost:4000";
+const eggUrl = "https://naomi-project-test.herokuapp.com/";
 let eggPicked = [];
 
 function getEggRecords() {
@@ -156,5 +156,35 @@ editModal.hide();
 getEggRecords();
 } )
 .catch((err)=>console.error('unable to update'))
+}
+
+function deleteFormDisplay(id) {
+    document.getElementById('delete_id').value =id
+}
+
+function deleteRecord(){
+    //create a variable
+    let id =document.getElementById("delete_id").value;
+      let deleteModal =  bootstrap.Modal.getInstance(document.getElementById('deleteEggModal'))
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+var requestOptions = {
+    method: 'DELETE',
+    headers: myHeaders
+};
+fetch(`${eggUrl}/api/deleteEggRecord/${id}`, requestOptions)
+    .then(response => response.json())
+    .then(data =>{
+
+
+window.alert(data);
+getEggRecords();
+deleteModal.hide();
+    })
+    .catch(error => console.error("Unable to delete record", error));
+
+
+
+
 }
 getEggRecords();

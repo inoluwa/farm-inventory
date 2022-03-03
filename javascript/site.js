@@ -1,7 +1,7 @@
 
 // Getting all inventory records
 //  created a variable baseurl for our api
-const baseUrl = "http://localhost:4000";
+const baseUrl = "https://naomi-project-test.herokuapp.com/";
 // here we declared an empty array, where our data will be saved 
 let inventory = [];
 
@@ -119,7 +119,7 @@ window.alert(data);
 getInventoryItems();
 closeModal.hide();
     })
-    .catch(error => console.error("Unable to update farm inventory data.", error));
+    .catch(error => console.error("Unable to delete record.", error));
 
 
 
@@ -199,9 +199,8 @@ editModal.hide();
 
 
 }
-function  doc(){
-    //
-}
+
+
 
 function displayNewInventoryForm(){
    

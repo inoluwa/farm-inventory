@@ -123,8 +123,31 @@
     <div id="counter-id"></div>
 
 </div>
-<!-- </div>
-</div> -->
+<div class="modal fade" id="deleteEggModal" tabindex="-1" aria-labelledby="deleteEggModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Are you sure you want to delete record?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body">
+            <div class="form-group">
+                <input id="delete_id" type="hidden" class="form-control" />
+               </div>
+        
+          <p>Do you really want these record deleted?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="deleteRecord()">Delete</button>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+</div>
 
 <!-- javascript -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
