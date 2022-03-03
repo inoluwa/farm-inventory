@@ -1,4 +1,4 @@
-const eggUrl = "https://naomi-project-test.herokuapp.com/";
+const eggUrl = "https://naomi-project-test.herokuapp.com";
 let eggPicked = [];
 
 function getEggRecords() {
