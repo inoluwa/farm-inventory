@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,72 +11,69 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
+
 <body>
     <!-- table to show all egg picked records -->
-<div class="container">
-     
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Tabitha Farm</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg navbar-success bg-success">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Tabitha Farm</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="/farm-inventorys">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="/farm-inventorys/eggmgt.html">Egg Inventory</a>
-              </li>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link " aria-current="page" href="/farm-inventorys">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/farm-inventorys/eggmgt.html">Egg Inventory</a>
+                        </li>
 
-             
-            </ul>
-          </div>
-        </div>
-      </nav>
-    <div class="wrapper">
-<div class="tb-title">
-    <div class="col-sm-6">
-        <h2>Egg picked Record</h2>
-    </div>
- </div>
- <div class="col-sm-6">
-    <a   data-bs-target= "#addEggModal" data-bs-toggle="modal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="wrapper">
+
+            <div class="col-md-6">
+                <a data-bs-target="#addEggModal" data-bs-toggle="modal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i>
  <span>Add New Record</span>
  </a>
 
- <div class="modal fade" id="addEggModal" tabindex="-1" role="dialog" aria-labelledby="newEggModal aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="eggModalLabel">New Record</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal fade" id="addEggModal" tabindex="-1" role="dialog" aria-labelledby="newEggModal aria-hidden=" true ">
+    <div class="modal-dialog " role="document ">
+        <div class="modal-content ">
+            <div class="modal-header ">
+                <h5 class="modal-title " id="eggModalLabel ">New Record</h5>
+                <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close "></button>
             </div>
-            <div class="modal-body">
-                <form action="javascript.void(0)">
+            <div class="modal-body ">
+                <form action="javascript.void(0) ">
                 
-                    <div class="form-group">
-                        <label for="gud" class="col-form-label">Good:</label>
-                        <input type="text" class="form-control" id="gud" >
+                    <div class="form-group ">
+                        <label for="gud " class="col-form-label ">Good:</label>
+                        <input type="text " class="form-control " id="gud " >
 
 
-                        <label for="bad" class="col-form-label">Bad:</label>
-                        <input type="text" class="form-control" id="bad" required>
+                        <label for="bad " class="col-form-label ">Bad:</label>
+                        <input type="text " class="form-control " id="bad " required>
 
-                        <label for="cracked" class="col-form-label">Cracked:</label>
-                        <input type="text" class="form-control" id="cracked" required>
+                        <label for="cracked " class="col-form-label ">Cracked:</label>
+                        <input type="text " class="form-control " id="cracked " required>
 
                 </div>
-                     <div class="form-group">
-                        <label for=" comment-text" class="col-form-label">Comment:</label>
-                        <textarea class="form-control" id="cmt"></textarea>
+                     <div class="form-group ">
+                        <label for=" comment-text " class="col-form-label ">Comment:</label>
+                        <textarea class="form-control " id="cmt "></textarea>
                     </div>
                 </form>
              </div>
-             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="saveRecord()">Save</button>
+             <div class="modal-footer ">
+                <button type="button " class="btn btn-secondary " data-bs-dismiss="modal ">Close</button>
+                <button type="button " class="btn btn-primary " onclick="saveRecord() ">Save</button>
             </div>
             </div>
         </div>
@@ -94,45 +92,45 @@
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody id="eggPicked"></tbody>
+        <tbody id="eggPicked "></tbody>
     </table>
 
 
 <!-- edit modal -->
-    <div id="counter"></div>
-    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Egg Record</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div id="counter "></div>
+    <div class="modal fade " id="editModal " tabindex="-1 " role="dialog " aria-labelledby="editModal " aria-hidden="true ">
+        <div class="modal-dialog " role="document ">
+            <div class="modal-content ">
+                <div class="modal-header ">
+                    <h5 class="modal-title " id="exampleModalLabel ">Edit Egg Record</h5>
+                    <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close "></button>
                 </div>
-                <div class="modal-body">
-                    <form action="javascript.void(0)">
-                        <div class="form-group">
-                        <input id="edit_id" type="hidden" class="form-control" />
+                <div class="modal-body ">
+                    <form action="javascript.void(0) ">
+                        <div class="form-group ">
+                        <input id="edit_id " type="hidden " class="form-control " />
                        </div>
-                        <div class="form-group">
-                            <label for="good" class="col-form-label">Good:</label>
-                            <input type="text" class="form-control" id="good_value" >
+                        <div class="form-group ">
+                            <label for="good " class="col-form-label ">Good:</label>
+                            <input type="text " class="form-control " id="good_value " >
 
 
-                            <label for="bad" class="col-form-label">Bad:</label>
-                            <input type="text" class="form-control" id="bad_value" required>
+                            <label for="bad " class="col-form-label ">Bad:</label>
+                            <input type="text " class="form-control " id="bad_value " required>
 
-                            <label for="cracked" class="col-form-label">Cracked:</label>
-                            <input type="text" class="form-control" id="cracked_value" required>
+                            <label for="cracked " class="col-form-label ">Cracked:</label>
+                            <input type="text " class="form-control " id="cracked_value " required>
                     
                         </div>
-                        <div class="form-group">
-                            <label for=" comment-text" class="col-form-label">Comment:</label>
-                            <textarea class="form-control" id="comment_value"></textarea>
+                        <div class="form-group ">
+                            <label for=" comment-text " class="col-form-label ">Comment:</label>
+                            <textarea class="form-control " id="comment_value "></textarea>
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="updateRecord()">Update</button>
+                <div class="modal-footer ">
+                    <button type="button " class="btn btn-secondary " data-bs-dismiss="modal ">Close</button>
+                    <button type="button " class="btn btn-primary " onclick="updateRecord() ">Update</button>
                 </div>
             </div>
         </div>
@@ -141,27 +139,27 @@
 
 
 <!-- for displayin no of entries -->
-    <div id="counter-id"></div>
+    <div id="counter-id "></div>
 
 </div>
-<div class="modal fade" id="deleteEggModal" tabindex="-1" aria-labelledby="deleteEggModal" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel">Are you sure you want to delete record?</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="modal fade " id="deleteEggModal " tabindex="-1 " aria-labelledby="deleteEggModal " aria-hidden="true ">
+    <div class="modal-dialog ">
+      <div class="modal-content ">
+        <div class="modal-header ">
+          <h5 class="modal-title " id="deleteModalLabel ">Are you sure you want to delete record?</h5>
+          <button type="button " class="btn-close " data-bs-dismiss="modal " aria-label="Close "></button>
         </div>
 
-        <div class="modal-body">
-            <div class="form-group">
-                <input id="delete_id" type="hidden" class="form-control" />
+        <div class="modal-body ">
+            <div class="form-group ">
+                <input id="delete_id " type="hidden " class="form-control " />
                </div>
         
           <p>Do you really want these record deleted?</p>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" onclick="deleteRecord()">Delete</button>
+        <div class="modal-footer ">
+          <button type="button " class="btn btn-secondary " data-bs-dismiss="modal ">Close</button>
+          <button type="button " class="btn btn-primary " onclick="deleteRecord() ">Delete</button>
           </div>
         
       </div>
@@ -171,11 +169,11 @@
 </div>
 
 <!-- javascript -->
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js " integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js " integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13 " crossorigin="anonymous "></script>
 
-    <script src="javascript/eggmgt.js"></script>
-    <script type="text/javascript">
+    <script src="javascript/eggmgt.js "></script>
+    <script type="text/javascript ">
     </script>
 </body>
 </html>
