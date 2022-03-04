@@ -2,7 +2,7 @@
 // Getting all inventory records
 //  created a variable baseurl for our api
 const baseUrl = "https://naomi-project-test.herokuapp.com";
-// here we declared an empty array, where our data will be saved 
+// here we declare an empty array, where our data will be saved 
 let inventory = [];
 
 // This a function to get all inventory records

@@ -1,7 +1,11 @@
+//  create a variable to hold our url
 const eggUrl = "https://naomi-project-test.herokuapp.com";
+// declare an empty array where our data will be saved
 let eggPicked = [];
 
+//  this is a function to get all egg records 
 function getEggRecords() {
+    // 
     var myHeaders=new Headers();
     myHeaders.append('content-type', 'application/json');
 var requestOptions= {
@@ -11,7 +15,7 @@ var requestOptions= {
 fetch(`${eggUrl}/api/allEggRecords`, requestOptions)
 .then(res=> res.json())
 .then(res=>{displayEggRecord(res.data)})
-.catch(err=>console.error(err))
+.catch(err=>console.error('unable to get egg records', err))
 }
 
 function dis_count (recordCount) {
@@ -133,14 +137,12 @@ if(!(good && bad && cracked && comment)){
 // continue;
 
 const objBody = {
-    good:good,
-    bad:bad,
-    cracked:cracked,
-    comment:comment
+    good,
+    condemed:bad,
+    cracked,
+    moreInformation:comment
 }
-var editModal =  bootstrap.Modal.getInstance(document.getElementById('editModal'))
-
-
+var editModal =  bootstrap.Modal.getInstance(document.getElementById('editModal'));
 var myHeaders = new Headers();
 myHeaders.append('content-type','application/json');
 var requestOptions={
@@ -175,16 +177,10 @@ var requestOptions = {
 fetch(`${eggUrl}/api/deleteEggRecord/${id}`, requestOptions)
     .then(response => response.json())
     .then(data =>{
-
-
 window.alert(data);
 getEggRecords();
 deleteModal.hide();
     })
     .catch(error => console.error("Unable to delete record", error));
-
-
-
-
 }
 getEggRecords();
