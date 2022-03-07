@@ -4,18 +4,39 @@ const eggUrl = "https://naomi-project-test.herokuapp.com";
 let eggPicked = [];
 
 //  this is a function to get all egg records 
+
+
+
+
 function getEggRecords() {
     // 
+
+    const token =sessionStorage.getItem('token')
     var myHeaders=new Headers();
     myHeaders.append('content-type', 'application/json');
+    myHeaders.append('x-access-token', token);
+ //myHeaders.append('x-access-token', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjI0LCJ1c2VybmFtZSI6ImFkZXNvbGEiLCJyb2xlIjoxLCJpYXQiOjE2NDY2Njc1ODksImV4cCI6MTY0NjY3NDc4OX0.TveWz6ROf2vIF0PAJy3TgzRZxB4D5P7K8qQTh7TCPAI')
 var requestOptions= {
     headers: myHeaders,
     method: 'GET'  
 }
 fetch(`${eggUrl}/api/allEggRecords`, requestOptions)
-.then(res=> res.json())
-.then(res=>{displayEggRecord(res.data)})
-.catch(err=>console.error('unable to get egg records', err))
+.then(res=> {
+
+if(res.status==403|| res.status==401){
+window.open('../login.html', '_self');
+
+}
+return res.json();
+})
+.then(res=>{displayEggRecord(res.data);
+    debugger})
+.catch((error)=>
+    {
+        debugger
+        console.error('unable to get egg records')
+
+})
 }
 
 function dis_count (recordCount) {
@@ -102,7 +123,7 @@ var requestOptions={
     body:newData,
 };
 fetch(`${eggUrl}/api/postEggRecord/`, requestOptions)
-    .then(response => response.json())
+    .then(response =>response.json())
     .then(data =>{
        
         window.alert(data.message);
