@@ -26,7 +26,7 @@ function loginUser(){
    .then(res=>{
        if(res.statusCode=='00'){
 
-    sessionStorage.setItem('token', res.token);
+    localStorage.setItem('token', res.token);
 
         window.open('/eggmgt.html', "_self");
 

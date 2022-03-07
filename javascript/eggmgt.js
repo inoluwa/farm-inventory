@@ -11,7 +11,7 @@ let eggPicked = [];
 function getEggRecords() {
     // 
 
-    const token =sessionStorage.getItem('token')
+    const token =localStorage.getItem('token')
     var myHeaders=new Headers();
     myHeaders.append('content-type', 'application/json');
     myHeaders.append('x-access-token', token);
