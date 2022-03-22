@@ -1,6 +1,6 @@
 var loginUrl = "https://naomi-project-test.herokuapp.com";
 function loginUser(){
-    let username = document.getElementById('typeEmail').value;
+    let username = document.getElementById('typeUsername').value;
     let password = document.getElementById('typePassword').value;
 
     if(!(username && password)) {
